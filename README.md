@@ -1,2 +1,2 @@
-# DisWrapper
- Small python wrapper to interact with discord
+# DisPy
+ Non official discord wrapper for python
