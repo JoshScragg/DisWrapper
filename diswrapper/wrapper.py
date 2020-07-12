@@ -47,10 +47,11 @@ class DisWrapper:
 
     def auth(self, email, password):
         if os.path.isfile("auth.cache"):
-            json_content = json.loads(open("auth.cache", "r").text)
-            self.theme = json_content["theme"]
-            self.locale = json_content["locale"]
-            self.token = json_content["auth"]
+            with open("auth.cache", "r") as auth_file:
+                json_content = json.load(auth_file)
+                self.theme = json_content["theme"]
+                self.locale = json_content["locale"]
+                self.token = json_content["auth"]
         else:
             header = {
                 "content-type": "application/json"

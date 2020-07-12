@@ -1,8 +1,7 @@
-import sys
-sys.path.append("")
-from main import *
+from ..wrapper import DisWrapper
 
-client = DisPy()
+
+client = DisWrapper()
 client.request_logging = True
 
 client.auth("scraggjoshua@gmail.com", "Cooljs123")
