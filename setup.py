@@ -8,7 +8,7 @@ setup(
   author = 'Josh Scragg',                   # Type in your name
   author_email = 'josh@scragg.co.nz',      # Type in your E-Mail
   url = 'https://github.com/JoshScragg/DisPy',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/JoshScragg/DisWrapper/archive/0.1.2.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/JoshScragg/DisWrapper/archive/0.1.3.tar.gz',    # I explain this later on
   keywords = ['Discord', 'Wrapper', 'Bot', 'Selfbot', 'Dis', 'library'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'websocket',
