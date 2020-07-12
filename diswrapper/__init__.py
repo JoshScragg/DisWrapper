@@ -1,1 +1,1 @@
-from discordpy import DisPy, User, Message
+from diswrapper import DisWrapper, User, Message

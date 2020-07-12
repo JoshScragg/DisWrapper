@@ -2,4 +2,4 @@
 setup.cfg
 setup.py
 DisWrapper/__init__.py
-DisWrapper/discordpy.py
+DisWrapper/diswrapper.py

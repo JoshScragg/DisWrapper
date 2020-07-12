@@ -31,7 +31,7 @@ class Message:
         self.flags = flags
 
 
-class DisPy:
+class DisWrapper:
     def __init__(self):
         self.requester = requests.Session()
         self.request_logging = False
