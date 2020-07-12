@@ -46,28 +46,18 @@ class DisWrapper:
         return res
 
     def auth(self, email, password):
-        if os.path.isfile("auth.cache"):
-            with open("auth.cache", "r") as auth_file:
-                json_content = json.load(auth_file)
-                self.theme = json_content["theme"]
-                self.locale = json_content["locale"]
-                self.token = json_content["auth"]
-        else:
-            header = {
-                "content-type": "application/json"
-            }
-            payload = {"email": email, "password": password}
-            url = "https://discord.com/api/v6/auth/login"
+        header = {
+            "content-type": "application/json"
+        }
+        payload = {"email": email, "password": password}
+        url = "https://discord.com/api/v6/auth/login"
 
-            req = self.sendReq("POST", url, payload, header).text
-            json_request = json.loads(req)
+        req = self.sendReq("POST", url, payload, header).text
+        json_request = json.loads(req)
 
-            self.theme = json_request["user_settings"]["theme"]
-            self.locale = json_request["user_settings"]["locale"]
-            self.token = json_request["token"]
-
-            with open("auth.cache", "w") as auth_file:
-                json.dump({"auth": self.token, "theme": self.theme, "locale": self.locale}, auth_file)
+        self.theme = json_request["user_settings"]["theme"]
+        self.locale = json_request["user_settings"]["locale"]
+        self.token = json_request["token"]
         return self.token
 
 
