@@ -66,7 +66,7 @@ class DisWrapper:
             self.token = json_request["token"]
 
             with open("auth.cache", "w") as auth_file:
-                json.dumps({"auth": self.token, "theme": self.theme, "locale": self.locale}, auth_file)
+                json.dump({"auth": self.token, "theme": self.theme, "locale": self.locale}, auth_file)
         return self.token
 
 
