@@ -23,7 +23,7 @@ class Message:
         self.attachments = attachments
         self.embeds = emebds
         self.mentions = mentions
-        self. mention_roles = mention_roles
+        self.mention_roles = mention_roles
         self.pinned = pinned
         self.tts = tts
         self.timestamp = timestamp
@@ -153,7 +153,17 @@ class DisWrapper:
                         req_json["user"]["discriminator"], req_json["user"]["public_flags"], req_json["nick"])
         
         return new_user
-        
+    
+    def getUserInfo(self, user_id):
+        headers = {"Authorization": self.token}
+        url = f"https://discordapp.com/api/v6/users/{user_id}"
+
+        req = self.sendReq("GET", url, headers=headers)
+        req_json = json.loads(req.text)
+
+        new_user = User(req_json["id"], req_json["username"], req_json["avatar"], 
+                        req_json["discriminator"], req_json["public_flags"])
+        return new_user
 
     def get_websocket_gateway(self):
         req = self.sendReq("GET", "https://discordapp.com/api/v6/auth/login")
