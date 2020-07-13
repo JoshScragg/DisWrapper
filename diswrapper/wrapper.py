@@ -97,6 +97,8 @@ class DisWrapper:
                                   message["edited_timestamp"], message["flags"])
             messages.append(new_message)
         
+        messages.reverse()
+        
         return messages
 
 
